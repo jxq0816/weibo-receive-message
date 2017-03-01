@@ -8,13 +8,14 @@ import org.apache.commons.httpclient.methods.GetMethod;
 import java.io.ByteArrayOutputStream;
 import java.io.DataInputStream;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
 public class ReceiveMessageServiceTest {
     private MultiThreadedHttpConnectionManager httpConnManager;
     private HttpClient httpClient;
-    private List<String> streamingUrlList;
+    private List<String> streamingUrlList=new ArrayList<String>();
     private int curStreamUrlIndex;
     public static long lastMsgLocation = -1L;
     private DataInputStream inputStream;
@@ -36,7 +37,7 @@ public class ReceiveMessageServiceTest {
      * 初始化httpclient，并启动获取数据线程
      */
     public void init() {
-        this.streamingUrlList.add("http://c.api.weibo.com/2/datapush/comment.json?subid=10718");
+        this.streamingUrlList.add("http://c.api.weibo.com/datapush/comment?subid=10718");
         this.httpConnManager = new MultiThreadedHttpConnectionManager();
         this.httpConnManager.getParams().setMaxConnectionsPerHost(HostConfiguration.ANY_HOST_CONFIGURATION, 10);
         this.httpConnManager.getParams().setMaxTotalConnections(10);
