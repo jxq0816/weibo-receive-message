@@ -37,7 +37,7 @@ public class ReceiveMessageServiceTest {
      * 初始化httpclient，并启动获取数据线程
      */
     public void init() {
-        this.streamingUrlList.add("http://c.api.weibo.com/datapush/comment?subid=10718");
+        this.streamingUrlList.add("http://c.api.weibo.com/datapush/comment?subid=10823");
         this.httpConnManager = new MultiThreadedHttpConnectionManager();
         this.httpConnManager.getParams().setMaxConnectionsPerHost(HostConfiguration.ANY_HOST_CONFIGURATION, 10);
         this.httpConnManager.getParams().setMaxTotalConnections(10);
