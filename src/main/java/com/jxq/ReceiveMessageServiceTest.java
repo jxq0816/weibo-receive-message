@@ -38,6 +38,7 @@ public class ReceiveMessageServiceTest {
      */
     public void init() {
         this.streamingUrlList.add("http://c.api.weibo.com/datapush/comment?subid=10823");
+        //this.streamingUrlList.add("http://c.api.weibo.com/datapush/status?subid=10718");
         this.httpConnManager = new MultiThreadedHttpConnectionManager();
         this.httpConnManager.getParams().setMaxConnectionsPerHost(HostConfiguration.ANY_HOST_CONFIGURATION, 10);
         this.httpConnManager.getParams().setMaxTotalConnections(10);
@@ -117,6 +118,7 @@ public class ReceiveMessageServiceTest {
             byte[] bytes = readLineBytes();
             if ((bytes != null) && (bytes.length > 0)) {
                 String message = new String(bytes);
+                System.out.println(message);
                 handleMessage(message);
             }
         }
