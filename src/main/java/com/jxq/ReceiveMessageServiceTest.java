@@ -118,7 +118,6 @@ public class ReceiveMessageServiceTest {
             byte[] bytes = readLineBytes();
             if ((bytes != null) && (bytes.length > 0)) {
                 String message = new String(bytes);
-                System.out.println(message);
                 handleMessage(message);
             }
         }
